@@ -1,0 +1,58 @@
+<div id="bar">
+    <side-navbar></side-navbar>
+</div>
+
+
+<div id="content">
+    <div class="container-fixed">
+       <header-panel [name]='name'></header-panel>
+         <div id="main">
+                <div id="div1">
+                 <h5><strong>DAILY STATS</strong></h5>
+                 <h5>{{today | date:'fullDate'}}</h5>
+                </div>
+                <div id="div2" class="row">
+                      <div class="col-xs-3">
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{users}}<br>
+                    USERS</h5>
+                    </div>
+                <div class="col-xs-3">
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{noOfOrders}}<br>
+                    ORDERS</h5>
+                </div>
+                 <div class="col-xs-3">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{total |currency :'INR'}}<br>
+                    PURCHASES</h5>
+                </div>
+                </div>
+            </div>
+                <br>
+             <div id="main">
+                <div id="div1">
+                 <h5><strong>MONTHLY STATS</strong></h5>
+                 <h5>{{today | date:'MM/yyyy'}}</h5>
+                </div>
+                 <div id="div2" class="row">
+                    <div class="col-xs-3">
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{users}}<br>
+                    USERS</h5>
+                    </div>
+                <div class="col-xs-3">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{noOfOrders}}<br>
+                    ORDERS</h5>
+                </div>
+                 <div class="col-xs-3">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;{{total |currency :'INR'}}<br>
+                    PURCHASES</h5>
+                </div>
+                </div>
+             </div>
+      
+
+    <div>  
+        <line-chart-demo></line-chart-demo>
+   </div>
+
+    </div>
+</div>
+

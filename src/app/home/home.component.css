@@ -1,0 +1,31 @@
+#bar{
+    float: left;
+}
+
+
+#content{
+    margin-top: 10px;
+    margin-left: 260px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 20px;
+}
+#main{
+    width:100%;
+    background-color:lightgrey;
+    display:flex;
+}
+
+#div1{
+    width:50%;
+    margin:10px;
+}
+
+#div2{
+    width:50%;
+    margin:10px;
+}
+h5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+

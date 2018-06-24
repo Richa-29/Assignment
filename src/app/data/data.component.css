@@ -1,0 +1,73 @@
+table{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    border: 2px;
+    border-color: black;
+    
+}
+
+td {
+    padding: 15px;
+}
+
+th{
+    text-align: center;
+     padding: 15px;
+}
+
+#addpurchase{
+    width: 90px;
+}
+
+.modal-dialog {
+   width: 560px;
+ }
+
+h4{
+    font-size: small;
+}
+label{
+    font-size: 13px;
+}
+
+#func{
+   margin-left: 350px;
+}
+
+#save{
+    margin-right: 10px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+#bar{
+    float: left;
+}
+
+#content{
+    margin-top: 10px;
+    margin-left: 260px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+
+
+#search{
+    width: 200px;
+    margin-top: 20px;
+}
+
+
+
+#myId{
+    margin-top: 20px;
+}
+
+#user{
+    float: right;
+}

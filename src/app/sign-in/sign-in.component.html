@@ -1,0 +1,46 @@
+
+<app-header></app-header>
+
+  <div *ngIf="message" class="alert alert-danger" role="alert">
+    <h5>{{message}}</h5>
+  </div>
+
+
+<div class="jumbotron vertical-center" id="signup">
+  
+    <div class="container text-center">
+
+
+
+
+<h3 id="heading">Sign In</h3>
+
+
+<form [formGroup]="userLoginForm" (ngSubmit)="submitForm(userLoginForm)">
+
+  <div>
+    <label for="username" >UserName</label>
+    <div>
+    <input type="text"  formControlName="username" placeholder="Enter name">
+    </div>
+  </div>
+  <br>
+  <div >
+    <label for="password" >Password</label>
+    <div>
+    <input type="text" formControlName="password" placeholder="Enter password">
+    </div>
+  </div>
+
+<br>
+<button class="btn btn-info active" type="submit">Login</button>&nbsp;
+<button class="btn btn-info" (click)="SignUp()">SignUp</button>
+
+</form>
+</div>
+</div>
+
+
+
+
+

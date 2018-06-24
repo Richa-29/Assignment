@@ -1,0 +1,155 @@
+<div id="bar"> 
+    <side-navbar></side-navbar>
+</div>
+
+<div id="content">
+ 
+<div class="container-fluid">
+  
+  <header-panel [name]="name"></header-panel>
+    
+    
+<nav class="navbar navbar-default">
+ <div class="container-fluid">
+   <ul class="nav navbar-nav">
+	<li>
+		<div class="form-group">
+			<div>
+				<input type="text" id="search" [(ngModel)]="searchText" class="form-control" placeholder="Search" />
+			</div>
+		</div>
+	</li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     <li> 
+		<button type="button" id="myId" (click)="deletemessage()" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addProduct">Add &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+	 </li>
+    </ul>
+  </div>
+</nav>
+ 
+<div class="modal fade" id="addProduct" role="dialog" tabindex=-1 aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalLabelSmall"><span class="glyphicon glyphicon-plus"></span>&nbsp;<strong>{{function}} PURCHASE</strong></h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+			</div>
+
+			<div class="modal-body">
+				<form [formGroup]="orderForm" (ngSubmit)="AddOrder(orderForm)">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-xs-6">
+								<label for="username">User</label>
+								<input formControlName="user" type="text" name="username" [(ngModel)]="newPurchase.user" class="form-control" placeholder="Enter name" required>
+							</div>
+							<div class="col-xs-6">
+								<label>Expiration Date</label>
+								<input formControlName="date" type="date" name="date" [(ngModel)]="newPurchase.date" class="form-control">
+							</div>
+						</div>
+					</div>
+  <br>
+  
+					<div class="row">
+						<div class="form-group">
+							<div class="col-xs-6">
+								<label>Purchase</label>
+								<input formControlName="purchase" type="number" name="purchase" [(ngModel)]="newPurchase.purchase" class="form-control" placeholder="Enter amount">
+							</div>
+							<div class="col-xs-6">
+								<label>Earnings</label>
+								<input formControlName="earnings" type="number" name="earnings" [(ngModel)]="newPurchase.earnings" class="form-control" >
+							</div>
+						</div>
+					</div>
+  <br>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-xs-6">
+								<label>Commission %</label>
+								<input formControlName="commission" type="number" name="commission" [(ngModel)]="newPurchase.commission" class="form-control" placeholder="Enter percentage">
+							</div>
+							<div class="col-xs-6">
+								<label>Status</label>
+								<select formControlName="status" name="status"  [(ngModel)]="newPurchase.status" class="form-control">
+									<option selected value="VERIFIED">VERIFIED</option>
+									<option>UNVERIFIED</option>
+         
+								</select>
+							</div>     
+						</div>
+          </div>
+          <br>
+  
+					<div *ngIf="message" class="alert alert-danger" role="alert">
+						<h5>{{message}}</h5>
+					</div>
+
+					<div id="func">
+						
+							<button id="cancel" type="button" (click)="cancel()" class="btn btn-default btn-sm" data-dismiss="modal">CANCEL</button>&nbsp;
+							<button id="save"  type="submit"  class="btn btn-info btn-sm" >SUBMIT</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+    
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th  class="pointer" (click)="sort('user')"><i class="fa" [ngClass]="{'fa-sort': column != 'user', 
+                        'fa-sort-asc': (column == 'user' && !isDesc), 
+                        'fa-sort-desc': (column == 'user' && isDesc) }"
+              aria-hidden="true"> </i>User</th>
+      <th class="pointer" (click)="sort('purchase')"><i class="fa" [ngClass]="{'fa-sort': column != 'purchase', 
+                        'fa-sort-asc': (column == 'purchase' && !isDesc), 
+                        'fa-sort-desc': (column == 'purchase' && isDesc) }"
+              aria-hidden="true"> </i>Purchase</th>
+      <th class="pointer" (click)="sort('commission')"><i class="fa" [ngClass]="{'fa-sort': column != 'commission', 
+                        'fa-sort-asc': (column == 'commission' && !isDesc), 
+                        'fa-sort-desc': (column == 'commission' && isDesc) }"
+              aria-hidden="true"> </i>Commision</th>
+      <th class="pointer"(click)="sort('earnings')"><i class="fa" [ngClass]="{'fa-sort': column != 'earnings', 
+                        'fa-sort-asc': (column == 'earnings' && !isDesc), 
+                        'fa-sort-desc': (column == 'earnings' && isDesc) }"
+              aria-hidden="true"> </i>Earnings</th>
+      <th class="pointer" (click)="sort('status')"><i class="fa" [ngClass]="{'fa-sort': column != 'status', 
+                        'fa-sort-asc': (column == 'status' && !isDesc), 
+                        'fa-sort-desc': (column == 'status' && isDesc) }"
+              aria-hidden="true"> </i>Status</th>
+      <th class="pointer" (click)="sort('date')"><i class="fa" [ngClass]="{'fa-sort': column != 'date', 
+                        'fa-sort-asc': (column == 'date' && !isDesc), 
+                        'fa-sort-desc': (column == 'date' && isDesc) }"
+              aria-hidden="true"> </i>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of products | category: searchText | orderBy: {property: column, direction: direction}">
+      <td>{{product.user}}</td>
+      <td>{{product.purchase | currency:'INR'}}</td>
+      <td>{{product.commission}}</td>
+      <td>{{product.earnings | currency:'INR'}}</td>
+      <td>{{product.status}}</td>
+      <td>{{product.date}}</td>
+      <td><a id="editpurchase" data-target="#addProduct" data-toggle="modal" (click)="edit(product)"><span class="glyphicon glyphicon-pencil"></span></a>
+       &nbsp;&nbsp; <a (click)="delete(product)"><span class="glyphicon glyphicon-trash"></span></a>
+  </tbody>
+</table>
+
+</div>
+
+</div>
+      
+
+
+

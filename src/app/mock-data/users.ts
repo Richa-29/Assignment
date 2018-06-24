@@ -1,0 +1,22 @@
+export const Users=[
+    {
+        "username":"Riya",
+        "password":"Abc",
+        "email":"a@gmail.com"
+    },
+     {
+        "username":"Priya",
+        "password":"Abc",
+        "email":"b@gmail.com"
+    },
+     {
+        "username":"Diksha",
+        "password":"Abc",
+        "email":"c@gmail.com"
+    },
+     {
+        "username":"Mona",
+        "password":"Abc",
+        "email":"d@gmail.com"
+    }
+]

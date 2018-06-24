@@ -1,0 +1,18 @@
+div > h2{
+    text-align: center;
+    color: blue;
+}
+
+#bar{
+	float: left;
+}
+
+#content{
+     margin-top: 10px;
+    margin-left: 260px; /* Same as the width of the sidenav */
+    font-size: 15px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+h4{
+    float: right
+}

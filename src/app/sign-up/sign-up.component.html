@@ -1,0 +1,50 @@
+<app-header></app-header> 
+
+
+  <div *ngIf="message" class="alert alert-danger" role="alert">
+    <h5>{{message}}</h5>
+  </div>
+
+<div class="jumbotron vertical-center" id="signup">
+    <div class="container text-center">
+
+<h3 id="heading">Sign Up</h3>
+<form [formGroup]="userSignUpForm" (ngSubmit)="submitForm(userSignUpForm)">
+
+  <div class="form-group">
+    
+    <label for="username">UserName</label>
+    <div>
+    <input type="text" formControlName="username" placeholder="Enter name...">
+  </div>
+  </div>
+  
+  
+
+  <div class="form-group">
+   <div>
+    <label for="email">Email</label>
+   </div>
+  <div>
+    <input type="email" formControlName="email"  placeholder="Enter email...">
+  </div>
+  </div>
+
+  <div class="form-group">
+    <div>
+    <label for="password">Password</label>
+    </div>
+  <div>
+    <input type="password" formControlName="password" placeholder="Enter password...">
+    </div>
+  </div>
+ 
+  <button class="btn btn-info" type="submit">Register</button>&nbsp;
+  <button class="btn btn-info" (click)="login()">LogIn</button>
+
+   
+
+</form>
+    </div>
+</div>
+
